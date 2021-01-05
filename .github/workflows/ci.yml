@@ -10,6 +10,7 @@ on:
     tags: [ "v*.*.*" ]
     paths-ignore:
       - '**.md'
+      - 'VERSION'
   pull_request:
     branches: [ master ]
 
