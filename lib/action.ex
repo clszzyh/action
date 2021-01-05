@@ -1,18 +1,8 @@
 defmodule Action do
-  @moduledoc """
-  Documentation for `Action`.
-  """
+  @external_resource readme = Path.join([__DIR__, "../README.md"])
 
-  @doc """
-  Hello world.
+  @moduledoc readme |> File.read!() |> String.split("<!-- MDOC -->") |> Enum.fetch!(1)
 
-  ## Examples
-
-      iex> Action.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  @version Mix.Project.config()[:version]
+  def version, do: @version
 end
