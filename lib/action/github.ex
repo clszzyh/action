@@ -12,10 +12,12 @@ defmodule Action.Github do
           repository_name: binary(),
           repository_owner: binary(),
           event_name: binary(),
-          event: map()
+          event: map(),
+          state: atom(),
+          result: term()
         }
   @enforce_keys [:client, :sha, :repository_name, :repository_owner, :event_name, :event]
-  defstruct @enforce_keys
+  defstruct @enforce_keys ++ [:result, state: :ok]
 
   @spec init(binary() | nil) :: {:ok, t()} | {:error, binary() | atom()}
   def init(arg \\ nil)
