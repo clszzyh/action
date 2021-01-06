@@ -53,7 +53,7 @@ defmodule Action.Api do
   def logger(:warning, message), do: warning(message)
   def logger(:warn, message), do: warning(message)
   def logger(:debug, message), do: debug(message)
-  def logger(_, message), do: IO.puts(message)
+  def logger(_, message), do: IO.write(message)
 
   @spec warning(message()) :: :ok
   def warning(message), do: Command.issue("warning", message)
@@ -66,7 +66,7 @@ defmodule Action.Api do
     if debug?() do
       Command.issue("debug", message)
     else
-      IO.puts(message)
+      IO.write(message)
     end
   end
 

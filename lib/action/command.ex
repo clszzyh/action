@@ -63,7 +63,7 @@ defmodule Action.Command do
 
   @spec issue(binary() | t(), term()) :: :ok
   def issue(command, rest \\ nil)
-  def issue(%__MODULE__{} = cmd, nil), do: IO.puts(inspect(cmd))
+  def issue(%__MODULE__{} = cmd, nil), do: IO.write(inspect(cmd))
   def issue(command, rest), do: issue(init(command, rest))
 
   @spec init(binary(), term()) :: t()
