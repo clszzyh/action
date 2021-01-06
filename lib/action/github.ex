@@ -19,7 +19,7 @@ defmodule Action.Github do
   @enforce_keys [:client, :sha, :repository_name, :repository_owner, :event_name, :event]
   defstruct @enforce_keys ++ [:result, state: :ok]
 
-  @spec init(binary() | nil) :: {:ok, t()} | {:error, binary() | atom()}
+  @spec init(binary() | nil) :: Action.t()
   def init(arg \\ nil)
 
   def init(binary) when is_binary(binary) do

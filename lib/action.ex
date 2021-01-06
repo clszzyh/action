@@ -5,4 +5,7 @@ defmodule Action do
 
   @version Mix.Project.config()[:version]
   def version, do: @version
+
+  @type reason :: binary() | atom()
+  @type t :: {:ok, Action.Github.t()} | {:error, reason}
 end
