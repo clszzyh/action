@@ -387,7 +387,7 @@ jobs:
         # uses: heinrichreimer/github-changelog-generator-action@v2.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Modify version and changelog
+      - name: Modify version
         run: |
           git config --local user.email "$CI_EMAIL"
           git config --local user.name "$GITHUB_REPOSITORY_OWNER"

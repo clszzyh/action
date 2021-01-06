@@ -5,12 +5,10 @@ defmodule Action.Api do
 
   alias Action.Command
 
-  # @type put_commands :: :mask | :path | :output | :echo
-  # @type get_commands :: :input | :debug
-
-  @typep key :: Command.property_key()
-  @typep value :: Command.property_value()
-  @typep message :: Command.message()
+  @type key :: Command.property_key()
+  @type value :: Command.property_value()
+  @type message :: Command.message()
+  @type level :: Logger.level()
 
   @spec add_mask(message()) :: :ok
   def add_mask(secret), do: Command.issue("add-mask", secret)
@@ -47,6 +45,16 @@ defmodule Action.Api do
   @spec end_group :: :ok
   def end_group, do: Command.issue("endGroup")
 
+  @spec logger(level(), message()) :: :ok
+  @doc """
+      :emergency | :alert | :critical | :error | :warning | :warn | :notice | :info | :debug
+  """
+  def logger(:error, message), do: error(message)
+  def logger(:warning, message), do: warning(message)
+  def logger(:warn, message), do: warning(message)
+  def logger(:debug, message), do: debug(message)
+  def logger(_, message), do: IO.puts(message)
+
   @spec warning(message()) :: :ok
   def warning(message), do: Command.issue("warning", message)
 
@@ -54,7 +62,13 @@ defmodule Action.Api do
   def error(message), do: Command.issue("error", message)
 
   @spec debug(message()) :: :ok
-  def debug(message), do: Command.issue("debug", message)
+  def debug(message) do
+    if debug?() do
+      Command.issue("debug", message)
+    else
+      IO.puts(message)
+    end
+  end
 
   @spec debug? :: boolean()
   def debug?, do: System.get_env("RUNNER_DEBUG") == "1"
