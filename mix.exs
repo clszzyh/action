@@ -63,6 +63,8 @@ defmodule Action.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:tentacat, "~> 2.0"},
+      {:jason, "~> 1.2"},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.22", runtime: false}

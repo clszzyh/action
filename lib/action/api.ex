@@ -62,6 +62,9 @@ defmodule Action.Api do
   @spec get_input(binary()) :: binary() | nil
   def get_input(name), do: System.get_env("INPUT_#{name}")
 
+  @spec fetch_input!(binary()) :: binary()
+  def fetch_input!(name), do: System.fetch_env!("INPUT_#{name}")
+
   @spec get_state(binary()) :: binary() | nil
   def get_state(name), do: System.get_env("STATE_#{name}")
 end
