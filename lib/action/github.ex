@@ -5,29 +5,42 @@ defmodule Action.Github do
 
   alias Action.Api
   alias Tentacat.Client
+  require Logger
 
   @type t :: %__MODULE__{
           client: Client.t(),
-          sha: binary(),
           repository_name: binary(),
           repository_owner: binary(),
           event_name: binary(),
           event: map(),
           state: atom(),
-          result: term()
+          result: term(),
+          id: number()
         }
-  @enforce_keys [:client, :sha, :repository_name, :repository_owner, :event_name, :event]
-  defstruct @enforce_keys ++ [:result, state: :ok]
+  @enforce_keys [:client, :repository_name, :repository_owner, :event_name, :event]
+  defstruct @enforce_keys ++ [:result, :id, state: :ok]
 
-  @spec invoke(t(), (term(), term(), term() -> result)) :: result when result: term()
-  def invoke(%__MODULE__{} = me, f) when is_function(f, 3) do
+  @spec invoke(t(), (any(), any(), any() -> result), nil) :: result when result: any()
+  @spec invoke(t(), (any(), any(), any(), any() -> result), [any() | []]) :: result
+        when result: any()
+  @spec invoke(t(), (any(), any(), any(), any(), any() -> result), [any()]) :: result
+        when result: any()
+  def invoke(me, f, extra \\ nil)
+
+  def invoke(%__MODULE__{} = me, f, nil) when is_function(f, 3) do
     apply(f, normalize(me))
   end
 
-  @spec invoke(t(), (term(), term(), term(), term() -> result), term()) :: result
-        when result: term()
-  def invoke(%__MODULE__{} = me, f, extra) when is_function(f, 4) do
-    apply(f, normalize(me) ++ [extra])
+  def invoke(%__MODULE__{id: id} = me, f, nil) when is_function(f, 4) and id != nil do
+    invoke(me, f, [id])
+  end
+
+  def invoke(%__MODULE__{} = me, f, [_] = extra) when is_function(f, 4) do
+    apply(f, normalize(me) ++ extra)
+  end
+
+  def invoke(%__MODULE__{} = me, f, [_ | _] = extra) when is_function(f, 5) do
+    apply(f, normalize(me) ++ extra)
   end
 
   defp normalize(%__MODULE__{
@@ -42,6 +55,7 @@ defmodule Action.Github do
   def init(arg \\ nil)
 
   def init(binary) when is_binary(binary) do
+    IO.puts(binary)
     %{token: token, repository: repository} = data = Jason.decode!(binary, keys: :atoms)
     [_, repository_name | []] = String.split(repository, "/")
 
@@ -50,7 +64,7 @@ defmodule Action.Github do
        __MODULE__,
        Map.merge(data, %{
          repository_name: repository_name,
-         client: Client.new(%{access_token: token})
+         client: Client.new(%{access_token: Api.get_input("TOKEN") || token})
        })
      )}
   end
