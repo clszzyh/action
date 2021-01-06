@@ -19,6 +19,25 @@ defmodule Action.Github do
   @enforce_keys [:client, :sha, :repository_name, :repository_owner, :event_name, :event]
   defstruct @enforce_keys ++ [:result, state: :ok]
 
+  @spec invoke(t(), (term(), term(), term() -> result)) :: result when result: term()
+  def invoke(%__MODULE__{} = me, f) when is_function(f, 3) do
+    apply(f, normalize(me))
+  end
+
+  @spec invoke(t(), (term(), term(), term(), term() -> result), term()) :: result
+        when result: term()
+  def invoke(%__MODULE__{} = me, f, extra) when is_function(f, 4) do
+    apply(f, normalize(me) ++ [extra])
+  end
+
+  defp normalize(%__MODULE__{
+         client: client,
+         repository_owner: repository_owner,
+         repository_name: repository_name
+       }) do
+    [client, repository_owner, repository_name]
+  end
+
   @spec init(binary() | nil) :: Action.t()
   def init(arg \\ nil)
 
