@@ -14,6 +14,7 @@ defmodule Action.Github do
           event_name: binary(),
           event: map(),
           state: atom(),
+          stage: atom(),
           result: term(),
           id: number()
         }
@@ -22,7 +23,7 @@ defmodule Action.Github do
   @type resp :: HTTPoison.Response.t()
 
   @enforce_keys [:client, :repository_name, :repository_owner, :event_name, :event]
-  defstruct @enforce_keys ++ [:result, :id, state: :ok]
+  defstruct @enforce_keys ++ [:result, :id, :stage, state: :ok]
 
   @spec invoke(t(), (any(), any(), any() -> result), nil) :: result when result: any()
   @spec invoke(t(), (any(), any(), any(), any() -> result), [any() | []]) :: result
@@ -79,6 +80,13 @@ defmodule Action.Github do
     |> case do
       nil -> {:error, "Not found `GITHUB` env"}
       env -> init(env)
+    end
+  end
+
+  defimpl Inspect do
+    def inspect(%{state: state, result: result, stage: stage, id: id}, _opts) do
+      id_str = if id, do: "<#{id}> ", else: ""
+      "[#{stage}] #{id_str}{#{state}} #{inspect(result)}"
     end
   end
 end
