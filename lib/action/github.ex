@@ -12,20 +12,14 @@ defmodule Action.Github do
           repository_name: binary(),
           repository_owner: binary(),
           event_name: binary(),
-          event: map(),
-          state: atom(),
-          stage: atom(),
-          result: term(),
-          id: number(),
-          body: binary(),
-          number: number()
+          event: map()
         }
 
   @type invoke_result :: Tentacat.response()
   @type resp :: HTTPoison.Response.t()
 
   @enforce_keys [:client, :repository_name, :repository_owner, :event_name, :event]
-  defstruct @enforce_keys ++ [:result, :id, :number, :body, :stage, state: :ok]
+  defstruct @enforce_keys
 
   @spec invoke(t(), (any(), any(), any() -> result), nil) :: result when result: any()
   @spec invoke(t(), (any(), any(), any(), any() -> result), [any() | []]) :: result
@@ -36,10 +30,6 @@ defmodule Action.Github do
 
   def invoke(%__MODULE__{} = me, f, nil) when is_function(f, 3) do
     apply(f, normalize(me))
-  end
-
-  def invoke(%__MODULE__{id: id} = me, f, nil) when is_function(f, 4) and id != nil do
-    invoke(me, f, [id])
   end
 
   def invoke(%__MODULE__{} = me, f, [_] = extra) when is_function(f, 4) do
@@ -58,7 +48,7 @@ defmodule Action.Github do
     [client, repository_owner, repository_name]
   end
 
-  @spec init(binary() | nil) :: Action.t()
+  @spec init(binary() | nil) :: {:ok, t()} | {:error, binary()}
   def init(arg \\ nil)
 
   def init(binary) when is_binary(binary) do
@@ -82,13 +72,6 @@ defmodule Action.Github do
     |> case do
       nil -> {:error, "Not found `GITHUB` env"}
       env -> init(env)
-    end
-  end
-
-  defimpl Inspect do
-    def inspect(%{state: state, result: result, stage: stage, id: id}, _opts) do
-      id_str = if id, do: "<#{id}> ", else: ""
-      "[#{stage}] #{id_str}{#{state}} #{inspect(result)}"
     end
   end
 end
