@@ -17,6 +17,10 @@ defmodule Action.Github do
           result: term(),
           id: number()
         }
+
+  @type invoke_result :: Tentacat.response()
+  @type resp :: HTTPoison.Response.t()
+
   @enforce_keys [:client, :repository_name, :repository_owner, :event_name, :event]
   defstruct @enforce_keys ++ [:result, :id, state: :ok]
 
