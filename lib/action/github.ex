@@ -16,14 +16,16 @@ defmodule Action.Github do
           state: atom(),
           stage: atom(),
           result: term(),
-          id: number()
+          id: number(),
+          body: binary(),
+          number: number()
         }
 
   @type invoke_result :: Tentacat.response()
   @type resp :: HTTPoison.Response.t()
 
   @enforce_keys [:client, :repository_name, :repository_owner, :event_name, :event]
-  defstruct @enforce_keys ++ [:result, :id, :stage, state: :ok]
+  defstruct @enforce_keys ++ [:result, :id, :number, :body, :stage, state: :ok]
 
   @spec invoke(t(), (any(), any(), any() -> result), nil) :: result when result: any()
   @spec invoke(t(), (any(), any(), any(), any() -> result), [any() | []]) :: result
