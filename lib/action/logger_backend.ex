@@ -25,7 +25,7 @@ defmodule Action.LoggerBackend do
   @default_format "$time $metadata[$level] $message\n"
 
   defstruct level: :debug,
-            metadata: :all,
+            metadata: [],
             flush_interval: @default_flush_interval,
             format: @default_format
 
