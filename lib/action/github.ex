@@ -26,17 +26,20 @@ defmodule Action.Github do
         when result: any()
   @spec invoke(t(), (any(), any(), any(), any(), any() -> result), [any()]) :: result
         when result: any()
-  def invoke(me, f, extra \\ nil)
+  def invoke(me, f, extra \\ nil) do
+    IO.puts(inspect({:invoke, f, extra}))
+    do_invoke(me, f, extra)
+  end
 
-  def invoke(%__MODULE__{} = me, f, nil) when is_function(f, 3) do
+  defp do_invoke(%__MODULE__{} = me, f, nil) when is_function(f, 3) do
     apply(f, normalize(me))
   end
 
-  def invoke(%__MODULE__{} = me, f, [_] = extra) when is_function(f, 4) do
+  defp do_invoke(%__MODULE__{} = me, f, [_] = extra) when is_function(f, 4) do
     apply(f, normalize(me) ++ extra)
   end
 
-  def invoke(%__MODULE__{} = me, f, [_ | _] = extra) when is_function(f, 5) do
+  defp do_invoke(%__MODULE__{} = me, f, [_ | _] = extra) when is_function(f, 5) do
     apply(f, normalize(me) ++ extra)
   end
 
@@ -52,7 +55,7 @@ defmodule Action.Github do
   def init(arg \\ nil)
 
   def init(binary) when is_binary(binary) do
-    IO.puts(binary)
+    # IO.puts(binary)
     %{token: token, repository: repository} = data = Jason.decode!(binary, keys: :atoms)
     [_, repository_name | []] = String.split(repository, "/")
 
