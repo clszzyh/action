@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="action v0.1.8">
+
+    <title>Action.Api — action v0.1.8</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-3dae6a54dd.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="readme.html" class="sidebar-projectName">
+action
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.8
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+Action.Api <small class="app-vsn">(action v0.1.8)</small>
+
+          <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+
+      </h1>
+
+
+        <section id="moduledoc">
+<p><a href="https://github.com/actions/toolkit/blob/main/packages/core/src/core.ts">https://github.com/actions/toolkit/blob/main/packages/core/src/core.ts</a></p>
+        </section>
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:key/0">key()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:level/0">level()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:message/0">message()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:value/0">value()</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_mask/1">add_mask(secret)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_path/1">add_path(path)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#debug/1">debug(message)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#debug?/0">debug?()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#end_group/0">end_group()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#error/1">error(message)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_input/1">get_input(name)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_state/1">get_state(name)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#group/1">group(name)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#logger/2">logger(arg1, message)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><pre><code class="nohighlight makeup elixir"><span class="ss">:emergency</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:alert</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:critical</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:error</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:warning</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:warn</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:notice</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:info</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:debug</span></code></pre></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#save_state/3">save_state(k, v, value \\ nil)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_echo/1">set_echo(bool)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_output/3">set_output(k, v, value \\ nil)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#span/2">span(name, f)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#warning/1">warning(message)</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+        </section>
+
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types
+          </h1>
+          <div class="types-list">
+<section class="detail" id="t:key/0">
+
+  <div class="detail-header">
+    <a href="#t:key/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">key()</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L8" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>key() :: <a href="Action.Command.html#t:property_key/0">Action.Command.property_key</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:level/0">
+
+  <div class="detail-header">
+    <a href="#t:level/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">level()</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L11" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>level() :: <a href="https://hexdocs.pm/logger/Logger.html#t:level/0">Logger.level</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:message/0">
+
+  <div class="detail-header">
+    <a href="#t:message/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">message()</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L10" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>message() :: <a href="Action.Command.html#t:message/0">Action.Command.message</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:value/0">
+
+  <div class="detail-header">
+    <a href="#t:value/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">value()</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L9" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>value() :: <a href="Action.Command.html#t:property_value/0">Action.Command.property_value</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions
+          </h1>
+          <div class="functions-list">
+<section class="detail" id="add_mask/1">
+
+  <div class="detail-header">
+    <a href="#add_mask/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_mask(secret)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L14" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>add_mask(<a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="add_path/1">
+
+  <div class="detail-header">
+    <a href="#add_path/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_path(path)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L23" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>add_path(<a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="debug/1">
+
+  <div class="detail-header">
+    <a href="#debug/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">debug(message)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L65" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>debug(<a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="debug?/0">
+
+  <div class="detail-header">
+    <a href="#debug?/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">debug?()</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L74" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>debug?() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="end_group/0">
+
+  <div class="detail-header">
+    <a href="#end_group/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">end_group()</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L46" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>end_group() :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="error/1">
+
+  <div class="detail-header">
+    <a href="#error/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">error(message)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L62" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>error(<a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_input/1">
+
+  <div class="detail-header">
+    <a href="#get_input/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_input(name)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L77" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_input(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>() | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_state/1">
+
+  <div class="detail-header">
+    <a href="#get_state/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_state(name)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L80" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_state(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>() | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="group/1">
+
+  <div class="detail-header">
+    <a href="#group/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">group(name)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L43" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>group(<a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="logger/2">
+
+  <div class="detail-header">
+    <a href="#logger/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">logger(arg1, message)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L52" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>logger(<a href="#t:level/0">level</a>(), <a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+<pre><code class="nohighlight makeup elixir"><span class="ss">:emergency</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:alert</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:critical</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:error</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:warning</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:warn</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:notice</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:info</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">:debug</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="save_state/3">
+
+    <span id="save_state/2"></span>
+
+  <div class="detail-header">
+    <a href="#save_state/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">save_state(k, v, value \\ nil)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L20" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>save_state(<a href="#t:key/0">key</a>(), <a href="#t:value/0">value</a>(), <a href="#t:message/0">message</a>() | nil) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="set_echo/1">
+
+  <div class="detail-header">
+    <a href="#set_echo/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">set_echo(bool)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L31" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>set_echo(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="set_output/3">
+
+    <span id="set_output/2"></span>
+
+  <div class="detail-header">
+    <a href="#set_output/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">set_output(k, v, value \\ nil)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L17" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>set_output(<a href="#t:key/0">key</a>(), <a href="#t:value/0">value</a>(), <a href="#t:message/0">message</a>() | nil) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="span/2">
+
+  <div class="detail-header">
+    <a href="#span/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">span(name, f)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L35" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>span(<a href="#t:message/0">message</a>(), (() -&gt; result)) :: result when result: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="warning/1">
+
+  <div class="detail-header">
+    <a href="#warning/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">warning(message)</h1>
+
+      <a href="https://github.com/clszzyh/action/blob/v0.1.8/lib/action/api.ex#L59" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>warning(<a href="#t:message/0">message</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
