@@ -124,7 +124,7 @@ jobs:
         env:
           MIX_ENV: prod
       - name: Deploy doc
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./doc
@@ -412,7 +412,7 @@ jobs:
         env:
           MIX_ENV: prod
       - name: Deploy doc
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./doc
